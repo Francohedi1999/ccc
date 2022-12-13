@@ -1,0 +1,167 @@
+* , ::before , ::after
+{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	font-family: Arial , Helvetica , sans-serif;
+    background: cornsilk;
+    overflow-x: hidden;
+}
+
+h1
+{
+	margin-bottom: 20px;
+}
+
+/*________________________________________________________________________________________________________________________________*/
+.container_grid
+{
+	height: 100vh;  /*100% de Y de l'écran*/
+    width: 100%;    /*100% de X de l'écran*/
+    display: grid;
+    grid-template-columns: 200px 1fr;   /* => 2 colonnes*/
+    grid-template-rows: auto 1fr;   /* => 2 lignes*/
+    grid-template-areas:
+    'header header'
+    'nav main';
+}
+/*___________________________________________________________________________________*/
+header
+{
+    grid-area: header;
+
+	width: auto;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    background-color: black;
+    grid-column: span 2;    /* prendre 3 espace de grid-template-columns: 200px 1fr 200px */
+}
+/*___________________________________________________________________________________*/
+main
+{
+	grid-area: main;
+
+    padding: 5px;
+}
+/*___________________________________________________________________________________*/
+nav
+{
+	grid-area: nav;
+
+	background-color: darkgray;
+}
+
+nav .pagination
+{
+	background-color: cornsilk;
+}
+
+.list_menu
+{
+	max-height: 650px;
+	display: flex;
+	flex-direction: column;
+}
+
+.list_menu li
+{
+	height: 40px;
+	display: flex;
+    padding-top: 40px;
+    padding-left: 20px;
+	justify-content: left;
+	align-items: center;
+}
+
+.list_menu li a
+{
+	color: white;
+	text-decoration: none;
+}
+
+/*________________________________________________________________________________________________________________________________*/
+
+@media screen and (max-width: 1000px)
+{
+	header
+	{
+		width: auto;
+		color: white;
+		text-align: center;
+		background-color: black;
+		grid-column: span 1;    /* prendre 3 espace de grid-template-columns: 200px 1fr 200px */
+	}
+
+	.container_grid
+	{
+		/* display: flex; */
+        /* flex-direction: column;  de haut en bas */
+
+        display: grid;      
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;         
+        grid-template-areas:
+            'header'
+            'nav'
+            'main';
+	}
+
+	.list_menu
+	{
+		flex-direction: column;	/* côté à côté */
+		justify-content: center;
+	}
+
+	.list_menu li
+	{
+        padding-top: 20px;
+		margin: 0;	/* 0px => top et bottom // 10px => right et left */
+	}
+
+	main
+	{
+		min-height: 650px;
+	}
+}
+
+/*________________________________________________________________________________________________________________________________*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: dimgray;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding-bottom: 30px;
+    z-index: 1;
+}
+
+.dropdown-content li a {
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#S1 , #S2 , #S3 , #S4 , #S5 , #S6 , #S7 , #S8 , #S9
+{
+    display: none;
+}
+
+#p_1 , #p_2 , #p_3 , #p_4 , #p_5 , #p_6 , #p_7 , #p_8 , #p_9
+{
+    display: none;
+}
+
